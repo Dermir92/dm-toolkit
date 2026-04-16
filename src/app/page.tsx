@@ -1,65 +1,102 @@
-import Image from "next/image";
+import Link from 'next/link';
 
-export default function Home() {
+const generators = [
+  { title: 'Campaign Generator', description: 'Premise, conflict, villain, arcs, hooks, and a finale.', icon: '🗺' },
+  { title: 'Session Generator',  description: 'Hook, scenes, conflict, twist, reward, and a backup plan.', icon: '📜' },
+  { title: 'NPC Generator',      description: 'Name, role, personality, goal, secret, and story connection.', icon: '🧙' },
+  { title: 'Encounter Generator',description: 'Enemy type, terrain, complication, twist, and reward.', icon: '⚔' },
+  { title: 'Loot Generator',     description: 'Item name, type, flavor, practical use, and hidden hook.', icon: '💎' },
+];
+
+const features = [
+  {
+    title: 'Reroll anything independently',
+    description: 'Hate the villain but love the premise? Reroll just that one piece. Every field is its own card.',
+  },
+  {
+    title: 'Edit what you generate',
+    description: 'Treat generated content as a starting point. Edit any field inline and make it yours.',
+  },
+  {
+    title: 'Save what matters',
+    description: 'Save useful NPCs, hooks, and encounters to your Workspace and reuse them across sessions.',
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div>
+      {/* Hero */}
+      <section className="border-b border-zinc-800">
+        <div className="max-w-4xl mx-auto px-6 py-24 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/5 text-amber-400 text-xs font-medium mb-8">
+            Modular DM Assistant
+          </div>
+          <h1 className="text-5xl sm:text-6xl font-bold text-zinc-100 mb-5 leading-tight tracking-tight">
+            Generate fast.{' '}
+            <span className="text-amber-400">Prep smarter.</span>
+            <br />
+            Reuse what matters.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            A toolkit for Dungeon Masters who want quick inspiration and real control.
+            Every generated block is independently rerollable, editable, and saveable.
           </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/generators"
+              className="px-7 py-3 rounded-lg bg-amber-500 text-zinc-950 font-semibold text-sm hover:bg-amber-400 transition-colors"
+            >
+              Start Generating
+            </Link>
+            <Link
+              href="/workspace"
+              className="px-7 py-3 rounded-lg border border-zinc-700 text-zinc-300 font-medium text-sm hover:bg-zinc-800 transition-colors"
+            >
+              Open Workspace
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Features */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <p className="text-xs font-semibold uppercase tracking-widest text-zinc-600 text-center mb-10">
+          Built for control, not just generation
+        </p>
+        <div className="grid sm:grid-cols-3 gap-6">
+          {features.map((f) => (
+            <div key={f.title} className="bg-zinc-900 rounded-xl border border-zinc-800 p-7">
+              <h3 className="font-semibold text-zinc-100 mb-2">{f.title}</h3>
+              <p className="text-base text-zinc-400 leading-relaxed">{f.description}</p>
+            </div>
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* Generator cards */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <p className="text-xs font-semibold uppercase tracking-widest text-zinc-600 text-center mb-10">
+          Five generators, one workflow
+        </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {generators.map((g) => (
+            <Link
+              key={g.title}
+              href="/generators"
+              className="bg-zinc-900 rounded-xl border border-zinc-800 hover:border-amber-500/30 p-6 flex items-start gap-4 transition-all group"
+            >
+              <span className="text-2xl shrink-0 mt-0.5">{g.icon}</span>
+              <div>
+                <h3 className="font-semibold text-zinc-100 group-hover:text-amber-400 transition-colors mb-1">
+                  {g.title}
+                </h3>
+                <p className="text-sm text-zinc-500 leading-relaxed">{g.description}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
