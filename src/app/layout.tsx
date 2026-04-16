@@ -22,7 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 antialiased">
+      <body
+        className="min-h-full flex flex-col text-zinc-100 antialiased"
+        style={{
+          backgroundImage: 'url("/dnd back img.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
         <WorkspaceProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

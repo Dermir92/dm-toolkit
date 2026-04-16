@@ -15,7 +15,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="border-b border-zinc-800 bg-zinc-950 sticky top-0 z-50">
+    <nav className="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="font-bold text-amber-400 text-base tracking-tight">
           DM Toolkit

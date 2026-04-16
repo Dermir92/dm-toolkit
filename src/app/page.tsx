@@ -27,17 +27,8 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section
-        className="border-b border-zinc-800 relative"
-        style={{
-          backgroundImage: 'url("/dnd back img.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Dark overlay so text stays readable */}
-        <div className="absolute inset-0 bg-zinc-950/70" />
-        <div className="relative max-w-4xl mx-auto px-6 py-24 text-center">
+      <section className="border-b border-zinc-800/50">
+        <div className="max-w-4xl mx-auto px-6 py-24 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/5 text-amber-400 text-xs font-medium mb-8">
             Modular DM Assistant
           </div>
@@ -75,7 +66,7 @@ export default function HomePage() {
         </p>
         <div className="grid sm:grid-cols-3 gap-6">
           {features.map((f) => (
-            <div key={f.title} className="bg-zinc-900 rounded-xl border border-zinc-800 p-7">
+            <div key={f.title} className="bg-zinc-900/70 backdrop-blur-sm rounded-xl border border-zinc-800 p-7">
               <h3 className="font-semibold text-zinc-100 mb-2">{f.title}</h3>
               <p className="text-base text-zinc-400 leading-relaxed">{f.description}</p>
             </div>
@@ -93,7 +84,7 @@ export default function HomePage() {
             <Link
               key={g.title}
               href="/generators"
-              className="bg-zinc-900 rounded-xl border border-zinc-800 hover:border-amber-500/30 p-6 flex items-start gap-4 transition-all group"
+              className="bg-zinc-900/70 backdrop-blur-sm rounded-xl border border-zinc-800 hover:border-amber-500/30 p-6 flex items-start gap-4 transition-all group"
             >
               <span className="text-2xl shrink-0 mt-0.5">{g.icon}</span>
               <div>
