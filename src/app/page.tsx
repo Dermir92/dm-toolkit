@@ -27,8 +27,17 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="border-b border-zinc-800">
-        <div className="max-w-4xl mx-auto px-6 py-24 text-center">
+      <section
+        className="border-b border-zinc-800 relative"
+        style={{
+          backgroundImage: 'url("/dnd back img.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Dark overlay so text stays readable */}
+        <div className="absolute inset-0 bg-zinc-950/70" />
+        <div className="relative max-w-4xl mx-auto px-6 py-24 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/5 text-amber-400 text-xs font-medium mb-8">
             Modular DM Assistant
           </div>
